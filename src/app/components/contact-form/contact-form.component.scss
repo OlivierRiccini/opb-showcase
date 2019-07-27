@@ -1,0 +1,57 @@
+form {
+    margin: 15px 0;
+}
+
+form div:first-child {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5px;
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+input {
+    width: calc(100% - 12px);
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    font-weight: 100;
+    &:focus {
+        outline: none;
+    }
+}
+
+textarea {
+    width: calc(100% - 12px);
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 2px;
+    border-color: lightgray;
+    font-weight: 100;
+    &:focus {
+        outline: none;
+    }
+}
+
+button {
+    padding: 12px 38px;
+    font-size: 14px;
+    background: transparent;
+    border-radius: 2px;
+    border-color: lightgray;
+    margin-top: 5px;
+    font-weight: 100;
+    cursor: pointer;
+    &:hover {
+        border-color: grey;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:active {
+        border-style: solid;
+    }
+}

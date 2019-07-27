@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
+  <div>
+    <div class="form-group">
+      <input type="email" formControlName="email" id="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <input type="phone" formControlName="phone" id="phone" placeholder="Téléphone">
+    </div>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" formControlName="message" d="exampleFormControlTextarea1" rows="6" placeholder="Écrivez votre message..."></textarea>
+  </div>
+  <button type="submit">Envoyer</button>
+</form>
