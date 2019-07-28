@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'src/app/services/message.service';
+import { IEmail } from 'src/app/models/email.model';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,15 +11,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactFormComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private messageService: MessageService) { }
 
   public ngOnInit() {
     this.createForm();
   }
 
   public onSubmit(): void {
-    console.log(this.form.value);
-    this.form.reset();
+    const email: IEmail = {
+      from: 'info@olivierriccini.com',
+      to: 'info@olivierriccini.com',
+      subject: 'Email from OPB website',
+      content: `Phone number: ${this.form.value.phone}, ${this.form.value.message}`
+    };
+    console.log(email);
+    this.messageService.sendEmail(email).subscribe(() => {
+      console.log('Message send!');
+      this.form.reset();
+    });
   }
 
   private createForm(): void {
