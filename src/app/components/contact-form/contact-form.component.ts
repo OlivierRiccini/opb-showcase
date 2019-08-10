@@ -19,14 +19,14 @@ export class ContactFormComponent implements OnInit {
 
   public onSubmit(): void {
     const email: IEmail = {
-      from: 'info@olivierriccini.com',
-      to: 'info@olivierriccini.com',
+      from: 'olivier-webdev@hotmail.com',
+      to: 'olivier-webdev@hotmail.com',
       subject: 'Email from OPB website',
       content: `Phone number: ${this.form.value.phone}, ${this.form.value.message}`
     };
     console.log(email);
     this.messageService.sendEmail(email).subscribe(() => {
-      console.log('Message send!');
+      console.log('Message sent!');
       this.form.reset();
     });
   }
